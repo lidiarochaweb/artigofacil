@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia do Artigo Científico</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ef;--sf:#fff;--tx:#1b1f2a;--mu:#5d6475;--ac:#3b3a8f;--ac2:#0f8b8d;--bd:#e2ded4;--gl:#b8893a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10121a;--sf:#181b27;--tx:#eceef5;--mu:#9aa1b5;--ac:#9a98ff;--ac2:#4fd1c5;--bd:#2a2f42;--gl:#e0b45f}}
+:root[data-theme="dark"]{--bg:#10121a;--sf:#181b27;--tx:#eceef5;--mu:#9aa1b5;--ac:#9a98ff;--ac2:#4fd1c5;--bd:#2a2f42;--gl:#e0b45f}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;gap:4px;overflow-x:auto;padding:10px 16px;background:var(--sf);border-bottom:1px solid var(--bd)}
+nav a{white-space:nowrap;color:var(--mu);text-decoration:none;font-size:14px;font-weight:500;padding:6px 12px;border-radius:99px}
+nav a:hover{background:var(--bd);color:var(--tx)}
+.hero{padding:72px 20px 60px;text-align:center;background:radial-gradient(900px 400px at 50% -10%,color-mix(in srgb,var(--ac) 25%,transparent),transparent)}
+.hero h1{font-size:clamp(2.1rem,6vw,3.6rem);max-width:800px;margin:0 auto .4em}
+.hero p{max-width:620px;margin:0 auto 24px;color:var(--mu);font-size:1.1rem}
+.tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gl);font-weight:600;margin-bottom:14px}
+.btn{display:inline-block;background:var(--ac);color:var(--bg);border:0;padding:12px 24px;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none}
+.stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:36px}
+.stats b{display:block;font:700 1.8rem Fraunces,serif;color:var(--ac)}.stats span{font-size:13px;color:var(--mu)}
+section{max-width:980px;margin:0 auto;padding:56px 20px}
+section>h2{font-size:clamp(1.6rem,4vw,2.2rem)}
+.lead{color:var(--mu);max-width:680px;margin-bottom:24px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:20px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pill{border:1px solid var(--bd);background:var(--sf);color:var(--tx);padding:8px 14px;border-radius:99px;font:500 14px Inter,sans-serif;cursor:pointer}
+.pill.on{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.meta span{font-size:12px;background:color-mix(in srgb,var(--ac2) 15%,transparent);color:var(--ac2);padding:3px 10px;border-radius:99px;font-weight:600}
+.sec{display:flex;gap:12px;padding:10px 0;border-top:1px dashed var(--bd)}
+.sec i{font:700 14px Fraunces,serif;color:var(--gl);min-width:22px;font-style:normal}
+.sec small{display:block;color:var(--mu)}
+.step{cursor:pointer}.step h3{font-size:1.05rem;display:flex;justify-content:space-between;margin:0}
+.step p{display:none;margin:.6em 0 0;color:var(--mu);font-size:15px}.step.open p{display:block}
+.step .n{color:var(--gl)}
+.bar{height:10px;background:var(--bd);border-radius:99px;overflow:hidden;margin:10px 0 18px}
+.bar div{height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .3s}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer}
+.ck input{margin-top:6px;accent-color:var(--ac);width:18px;height:18px}
+.ck.done span{text-decoration:line-through;color:var(--mu)}
+h3.g{font-size:1rem;color:var(--ac);margin:16px 0 2px}
+.j{display:flex;flex-direction:column;gap:4px}.j b{font-family:Fraunces,serif}.j small{color:var(--mu)}
+.badge{align-self:flex-start;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--gl);color:#1b1f2a}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 24px}#tc ul,#tc ol{margin:4px 0;padding-left:20px;color:var(--mu)}#tc li{margin:3px 0}
+details.w{border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:8px 0;background:var(--bg)}details.w summary{cursor:pointer;font-weight:600}details.w p{margin:.5em 0 0;color:var(--mu);font-size:15px}.tp{border-left:4px solid var(--ac2);padding:8px 14px;margin:12px 0;background:color-mix(in srgb,var(--ac2) 10%,transparent);border-radius:0 10px 10px 0;font-size:15px}
+pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:14px;font:14px/1.6 Inter,sans-serif;margin:0}
+.warn{border-left:4px solid var(--gl)}
+.about{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.av{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;font:700 2.4rem Fraunces,serif;color:#fff}
+@media(max-width:600px){.about{grid-template-columns:1fr;text-align:center}.av{margin:auto}}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 20px 50px;border-top:1px solid var(--bd)}
+#tt{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9}
+</style>
+</head>
+<body>
+<nav><a href="#inicio">Início</a><a href="#tipos">Tipos de artigo</a><a href="#passos">Passo a passo</a><a href="#oficina">Oficina de escrita</a><a href="#formato">Formatos</a><a href="#checklist">Checklist</a><a href="#publicar">Publicar</a><a href="#revistas">Revistas</a><a href="#sobre">Sobre</a></nav>
+
+<header class="hero" id="inicio">
+<span class="tag">Guia completo para pesquisadores</span>
+<h1>Do primeiro tema à publicação: o guia do artigo científico</h1>
+<p>Estrutura de cada tipo de artigo, passo a passo da escrita, checklist de finalização e um mapa de onde publicar, incluindo revistas gratuitas.</p>
+<a class="btn" href="#tipos">Começar a explorar</a>
+<div class="stats"><div><b>9</b><span>tipos de artigo</span></div><div><b>10</b><span>etapas</span></div><div><b>22</b><span>itens de checklist</span></div></div>
+</header>
+
+<section id="tipos">
+<h2>Escolha o tipo de artigo</h2>
+<p class="lead">Clique em um tipo e veja como a estrutura, o tamanho e o foco mudam.</p>
+<div class="pills" id="tp"></div>
+<div class="card" id="tc"></div>
+</section>
+
+<section id="passos">
+<h2>Passo a passo da escrita</h2>
+<p class="lead">Clique em cada etapa para abrir a explicação.</p>
+<div class="grid" id="st"></div>
+</section>
+
+<section id="oficina">
+<h2>Oficina de escrita: cada parte do artigo, em detalhe</h2>
+<p class="lead">Escolha o seu tipo de artigo e depois a parte que quer escrever. O conteúdo se adapta ao tipo escolhido. Clique nas etapas para abri-las.</p>
+<div class="card"><b>1. Meu tipo de artigo:</b><div class="pills" id="wt" style="margin-top:10px"></div><b>2. Parte do artigo:</b><div class="pills" id="wp" style="margin-top:10px"></div><div id="wc"></div></div>
+</section>
+
+<section id="formato">
+<h2>Formatos de citação e referência</h2>
+<p class="lead">Cada revista exige um estilo. Alterne para ver o mesmo artigo em cada norma.</p>
+<div class="pills" id="fp"></div>
+<pre id="fc"></pre>
+</section>
+
+<section id="checklist">
+<h2>Checklist de finalização</h2>
+<p class="lead">Marque o que já fez. Seu progresso fica salvo neste navegador.</p>
+<div class="card">
+<b id="pc">0%</b><div class="bar"><div id="pb"></div></div>
+<div id="ck"></div>
+<button class="pill" id="rs" style="margin-top:12px">Limpar checklist</button>
+</div>
+</section>
+
+<section id="publicar">
+<h2>Como publicar</h2>
+<div class="grid">
+<div class="card"><h3>1. Escolha a revista cedo</h3><p>Leia o escopo e as “instruções aos autores” antes de escrever. Isso define tamanho, estilo e tipo de artigo aceito.</p></div>
+<div class="card"><h3>2. Verifique a qualidade</h3><p>Confira indexação (SciELO, Scopus, Web of Science, PubMed, DOAJ) e o Qualis da sua área na plataforma Sucupira.</p></div>
+<div class="card"><h3>3. Submeta</h3><p>Envie manuscrito, carta de apresentação (cover letter), página de título e aprovação ética quando houver.</p></div>
+<div class="card"><h3>4. Responda à revisão</h3><p>Revisão por pares costuma pedir correções. Responda ponto a ponto, com educação e evidências.</p></div>
+<div class="card"><h3>5. Divulgue</h3><p>Crie ORCID, mantenha o Lattes atualizado, publique preprint e compartilhe nas redes acadêmicas.</p></div>
+<div class="card warn"><h3>Cuidado com revistas predatórias</h3><p>Desconfie de convites por e-mail, prazos absurdamente curtos e taxas sem transparência. Use Think.Check.Submit e consulte o DOAJ.</p></div>
+</div>
+</section>
+
+<section id="revistas">
+<h2>Onde publicar</h2>
+<p class="lead">Exemplos para começar. Taxas e regras mudam: confirme sempre no site da revista.</p>
+<div class="pills" id="jp"></div>
+<div class="grid" id="jl"></div>
+</section>
+
+<section id="sobre">
+<div class="card about">
+<div class="av">L</div>
+<div>
+<span class="tag">Sobre a autora</span>
+<h2>Lídia Christine Leite Rocha</h2>
+<p>Estudante de Psicologia na FACHUSC, em Salgueiro (PE). Amo a pesquisa científica, especialmente a neurociência, e quero me desenvolver nessa área.</p>
+<p>Criei este site porque acredito que escrever e publicar ciência não deveria ser um mistério. Quero ajudar outros estudantes que também estão dando os primeiros passos na pesquisa a ter um caminho claro.</p>
+</div></div>
+</section>
+<footer>Guia do Artigo Científico · feito com carinho por Lídia Christine Leite Rocha</footer>
+<button class="pill" id="tt" title="Alternar tema">◐ Tema</button>
+
+<script>
+const T={
+"Original (IMRaD)":{t:"Relata uma pesquisa inédita, com dados coletados pelo autor.",w:"3.000–6.000 palavras",r:"CONSORT, STROBE, APA JARS",s:[["Título e resumo","Claro, com objetivo, método, resultado e conclusão."],["Introdução","Contexto, lacuna e objetivo."],["Métodos","Participantes, instrumentos, procedimentos, análise e ética."],["Resultados","Dados sem interpretação, com tabelas e figuras."],["Discussão","Interpretação, comparação com a literatura e limitações."],["Conclusão e referências","Síntese e fontes citadas."]]},
+"Revisão sistemática":{t:"Reúne e avalia estudos de forma rigorosa e reprodutível, com protocolo.",w:"4.000–8.000 palavras",r:"PRISMA 2020, registro no PROSPERO",s:[["Resumo estruturado","Pergunta, bases, critérios e achados."],["Introdução","Justificativa e pergunta (PICO)."],["Métodos","Bases, estratégias de busca, critérios, seleção e risco de viés."],["Resultados","Fluxograma PRISMA, tabela de estudos e síntese."],["Discussão","Qualidade da evidência e lacunas."],["Conclusão","Implicações para prática e pesquisa."]]},
+"Revisão narrativa":{t:"Panorama teórico de um tema, com busca menos rígida e mais interpretativa.",w:"3.000–6.000 palavras",r:"SANRA (qualidade de revisão narrativa)",s:[["Introdução","Relevância e objetivo."],["Percurso da busca","Bases e critérios usados, de forma transparente."],["Desenvolvimento por eixos","Tópicos temáticos ou históricos."],["Considerações finais","Lacunas e caminhos futuros."]]},
+"Relato de caso":{t:"Descreve um caso raro ou instrutivo, com consentimento do participante.",w:"1.500–3.000 palavras",r:"CARE, termo de consentimento",s:[["Resumo","Por que o caso importa."],["Introdução","Contexto breve."],["Apresentação do caso","Histórico, avaliação, intervenção e evolução."],["Discussão","Comparação com a literatura."],["Conclusão","Lição principal do caso."]]},
+"Estudo de caso":{t:"Análise aprofundada de uma unidade (pessoa, grupo, instituição), comum em ciências humanas.",w:"4.000–7.000 palavras",r:"Yin; COREQ se qualitativo",s:[["Introdução","Problema e questão."],["Referencial teórico","Conceitos que guiam a análise."],["Método","Justificativa do caso, coleta e análise."],["Análise","Evidências e categorias."],["Considerações finais","Contribuições e limites."]]},
+"Ensaio teórico":{t:"Argumentação original sobre um tema, sem coleta de dados.",w:"4.000–8.000 palavras",r:"Coerência argumentativa",s:[["Introdução","Tese ou problema central."],["Desenvolvimento","Argumentos encadeados com base em autores."],["Contraponto","Visões opostas e resposta."],["Conclusão","Retomada da tese."]]},
+"Comunicação breve":{t:"Resultado preliminar ou pequeno achado, em formato curto.",w:"1.500–2.500 palavras",r:"Regras da revista",s:[["Resumo curto","Achado principal."],["Introdução breve","Lacuna e objetivo."],["Métodos e resultados","Texto enxuto, 1–2 figuras."],["Discussão curta","Significado e limitações."]]},
+"Artigo de metanálise":{t:"Combina estatisticamente resultados de vários estudos.",w:"4.000–7.000 palavras",r:"PRISMA, MOOSE",s:[["Pergunta e protocolo","PICO e registro."],["Busca e seleção","Bases, critérios e fluxograma."],["Extração e viés","Dados e risco de viés."],["Análise estatística","Efeito, heterogeneidade (I²), forest plot."],["Discussão","Interpretação e limitações."]]},
+"Artigo de metodologia":{t:"Propõe ou valida um instrumento, técnica ou protocolo.",w:"4.000–7.000 palavras",r:"COSMIN, STARD",s:[["Introdução","Necessidade do instrumento."],["Desenvolvimento","Construção e itens."],["Validação","Validade, confiabilidade e amostra."],["Resultados","Indicadores psicométricos."],["Aplicações e limites","Uso e cuidados."]]}};
+const L=a=>"<ul>"+a.map(x=>`<li>${x}</li>`).join("")+"</ul>";
+function det(d){if(!d.q)return"";return`<h3 class="g">Quando usar</h3><p>${d.q}</p><div class="cols"><div><h3 class="g">Critérios de inclusão</h3>${L(d.i)}</div><div><h3 class="g">Critérios de exclusão</h3>${L(d.e)}</div></div><h3 class="g">Passo a passo detalhado</h3><ol>${d.p.map(x=>`<li>${x}</li>`).join("")}</ol><h3 class="g">Erros comuns</h3>${L(d.x)}<h3 class="g">Exemplo</h3><p><i>${d.ex}</i></p>`}
+const D={
+"Original (IMRaD)":{q:"Quando você coleta dados novos (questionários, testes, experimentos, entrevistas) para responder a uma pergunta de pesquisa.",i:["Faixa etária definida (ex.: 18 a 30 anos)","Vínculo com o contexto estudado (ex.: universitários de Psicologia)","Aceitar participar e assinar o TCLE","Completar todos os instrumentos"],e:["Diagnóstico ou condição que interfira nos resultados (ex.: uso de medicação que altera a cognição)","Questionários incompletos ou respostas aleatórias","Desistência durante a coleta","Não compreender o idioma dos instrumentos"],p:["Escreva a pergunta e o objetivo em uma frase cada.","Defina o desenho do estudo (transversal, experimental, qualitativo) e a amostra, com cálculo do tamanho.","Escolha instrumentos validados para a população e cite sua validação.","Submeta ao Comitê de Ética (Plataforma Brasil) antes de coletar.","Colete os dados e guarde tudo em planilha organizada.","Analise conforme o plano feito antes de ver os dados.","Escreva Métodos e Resultados, depois Discussão, Introdução e Resumo."],x:["Interpretar nos Resultados o que pertence à Discussão","Não justificar o tamanho da amostra","Concluir mais do que os dados permitem"],ex:"Efeito de 10 minutos de meditação sobre a atenção sustentada em universitários."},
+"Revisão sistemática":{q:"Quando existem vários estudos sobre uma pergunta e você quer sintetizá-los com método transparente e reprodutível.",i:["Estudos que respondem à pergunta PICO (população, intervenção, comparação, desfecho)","Tipos de estudo definidos (ex.: ensaios clínicos, estudos observacionais)","Período de publicação (ex.: 2014 a 2024)","Idiomas aceitos (ex.: português, inglês, espanhol)","Texto completo disponível"],e:["Revisões, editoriais, cartas e resumos de congresso","Estudos em animais, se o foco é humano","Amostra fora do público-alvo","Duplicatas entre as bases","Texto completo inacessível após tentativa de contato"],p:["Defina a pergunta no formato PICO e registre o protocolo no PROSPERO.","Escolha 3 ou mais bases (PubMed, Scopus, PsycINFO, SciELO, Web of Science).","Monte a string de busca com descritores (DeCS/MeSH) e operadores AND, OR, NOT.","Importe os resultados no Zotero ou Rayyan e remova duplicatas.","Faça a triagem por título e resumo, depois leia os textos completos. Idealmente, dois revisores independentes.","Registre os motivos de exclusão no fluxograma PRISMA.","Extraia os dados em tabela padronizada e avalie o risco de viés (RoB 2, Newcastle-Ottawa, JBI).","Sintetize os resultados e discuta a qualidade da evidência."],x:["Busca em uma única base","Critérios criados depois de ver os resultados","Não descrever a string de busca completa"],ex:"Efeitos de intervenções baseadas em mindfulness sobre a memória de trabalho em adultos: revisão sistemática."},
+"Revisão narrativa":{q:"Quando você quer apresentar um panorama teórico ou histórico de um tema, sem protocolo rígido.",i:["Publicações diretamente ligadas ao tema","Fontes de revistas indexadas ou livros acadêmicos","Estudos recentes e clássicos fundamentais","Idiomas que você consegue ler com segurança"],e:["Textos de opinião sem base científica","Sites sem autoria ou revisão","Trabalhos sem relação clara com o eixo temático","Fontes duplicadas ou sem acesso"],p:["Delimite o tema e 3 a 5 eixos de discussão.","Busque em bases e anote as palavras-chave usadas.","Leia os resumos, selecione e fiche cada fonte (autor, ano, ideia, citação).","Organize o texto por eixos, não por autor.","Compare as visões, destaque consensos e controvérsias.","Feche com lacunas e sugestões de pesquisa."],x:["Listar autores um após o outro sem análise","Não explicar como as fontes foram escolhidas"],ex:"Neuroplasticidade e aprendizagem na vida adulta: uma revisão narrativa."},
+"Relato de caso":{q:"Quando um caso é raro, inédito ou muito instrutivo para a prática.",i:["Caso com característica incomum ou lição clara","Dados clínicos completos e confiáveis","Consentimento livre e assinado do participante","Anonimização total da identidade"],e:["Caso comum sem nada de novo","Falta de consentimento","Dados incompletos ou inconsistentes","Risco de identificar o paciente"],p:["Obtenha o consentimento por escrito e a aprovação ética.","Reúna o histórico, queixa, exames e a linha do tempo.","Descreva a intervenção e a evolução em ordem cronológica.","Compare com casos da literatura.","Explique qual lição o leitor leva.","Siga a lista CARE."],x:["Expor dados que identificam o paciente","Generalizar demais a partir de um caso"],ex:"Alterações de memória após traumatismo craniano leve: relato de caso."},
+"Estudo de caso":{q:"Quando você analisa a fundo uma unidade (pessoa, grupo, escola, instituição) em seu contexto real.",i:["Caso que representa bem o fenômeno estudado","Acesso garantido às fontes (entrevistas, documentos, observação)","Autorização da instituição e dos participantes"],e:["Caso sem relação com a pergunta","Impossibilidade de coletar dados suficientes","Participantes que retiram o consentimento"],p:["Escreva a pergunta e justifique por que este caso.","Defina o referencial teórico que guiará a análise.","Colete com várias fontes (triangulação).","Organize os dados em categorias.","Relacione as categorias com a teoria.","Discuta o que o caso ensina e seus limites."],x:["Usar uma única fonte de dados","Prometer generalização estatística"],ex:"Rotina de estudo de uma estudante com TDAH: estudo de caso."},
+"Ensaio teórico":{q:"Quando o objetivo é defender uma tese com argumentos, sem coletar dados.",i:["Autores reconhecidos na área","Obras que sustentam ou contrariam sua tese","Fontes citadas de forma correta"],e:["Fontes sem autoria","Argumentos sem base teórica","Citações fora de contexto"],p:["Formule a tese em uma frase.","Liste 3 a 4 argumentos e a fonte de cada um.","Antecipe a objeção mais forte e responda.","Escreva com transição clara entre as ideias.","Retome a tese na conclusão."],x:["Opinião sem referência","Ignorar visões opostas"],ex:"A mente como processo: o diálogo entre Gestalt e neurociência."},
+"Comunicação breve":{q:"Para resultados preliminares ou um achado pontual que merece divulgação rápida.",i:["Dados completos o bastante para uma conclusão cautelosa","Achado claro e delimitado"],e:["Dados ainda muito incipientes","Estudo que exige discussão longa"],p:["Escolha o achado principal.","Redija métodos e resultados de forma enxuta.","Use no máximo 1 ou 2 figuras.","Respeite o limite de palavras da revista."],x:["Exceder o limite","Tentar contar um estudo inteiro em poucas linhas"],ex:"Relação entre horas de sono e desempenho em teste de atenção: dados preliminares."},
+"Artigo de metanálise":{q:"Quando há estudos quantitativos comparáveis e você quer calcular um efeito combinado.",i:["Estudos com dados numéricos extraíveis (média, desvio, tamanho do efeito)","Desfechos e medidas semelhantes","Desenho metodológico compatível"],e:["Estudos sem dados suficientes","Amostras sobrepostas entre artigos","Heterogeneidade clínica extrema"],p:["Siga todas as etapas da revisão sistemática.","Extraia os dados numéricos de cada estudo.","Escolha o modelo (efeito fixo ou aleatório).","Calcule o efeito combinado e a heterogeneidade (I²).","Faça forest plot e funnel plot.","Teste o viés de publicação e análises de sensibilidade."],x:["Combinar estudos muito diferentes","Não relatar a heterogeneidade"],ex:"Efeito do exercício aeróbico sobre a função executiva: revisão sistemática com metanálise."},
+"Artigo de metodologia":{q:"Quando você cria, adapta ou valida um instrumento, escala ou protocolo.",i:["Amostra que representa o público do instrumento","Itens definidos e revisados por especialistas","Aplicação padronizada"],e:["Respostas incompletas","Participantes fora do perfil","Itens com baixa compreensão no pré-teste"],p:["Defina o construto e escreva os itens.","Peça avaliação de juízes especialistas.","Faça um pré-teste para checar a clareza.","Aplique em amostra maior.","Calcule validade (análise fatorial) e confiabilidade (alfa de Cronbach).","Discuta os limites e usos do instrumento."],x:["Amostra pequena para a análise fatorial","Não descrever a tradução e adaptação cultural"],ex:"Adaptação e validação de uma escala de atenção plena para estudantes brasileiros."}};
+const P=[["Escolher o tema","Parta de uma curiosidade e delimite: população, variável e contexto."],["Revisar a literatura","Busque em PubMed, SciELO, Scopus e Google Acadêmico. Use Zotero ou Mendeley."],["Formular a pergunta","Objetivo claro e hipótese, quando houver."],["Definir o método","Tipo de estudo, amostra, instrumentos e ética (Plataforma Brasil, CEP)."],["Coletar e analisar","Registre tudo. Dados bem organizados salvam semanas."],["Escrever o rascunho","Comece por Métodos e Resultados. Introdução e resumo ficam para o fim."],["Revisar e editar","Leia em voz alta, corte repetições, peça leitura de um colega ou orientador."],["Escolher a revista","Verifique escopo, indexação, taxas e prazo."],["Submeter","Siga as normas à risca e escreva uma boa carta de apresentação."],["Revisão por pares","Responda a cada comentário e destaque as mudanças."]];
+const F={"ABNT":"SOBRENOME, Nome. Título do artigo. Revista, Cidade, v. 10, n. 2, p. 45-60, 2024.\nCitação: (ROCHA, 2024)","APA 7":"Rocha, L. C. L. (2024). Título do artigo. Revista, 10(2), 45–60. https://doi.org/xx\nCitação: (Rocha, 2024)","Vancouver":"Rocha LCL. Título do artigo. Revista. 2024;10(2):45-60.\nCitação: números entre parênteses, na ordem de aparição (1)","IMRaD":"Introdução → Métodos → Resultados → Discussão.\nÉ a estrutura base da maioria dos artigos originais, independente da norma de citação."};
+const C={"Antes de escrever":["Defini pergunta e objetivo","Escolhi a revista-alvo","Li as instruções aos autores","Obtive aprovação ética, se necessária"],"Texto":["Título claro e específico","Resumo com todas as partes","Introdução termina no objetivo","Métodos permitem replicar","Resultados sem interpretação","Discussão cita limitações","Conclusão responde ao objetivo","Palavras-chave definidas"],"Forma":["Tabelas e figuras numeradas e citadas","Referências conferidas e padronizadas","Todos os autores têm ORCID/contribuição descrita","Conflitos de interesse declarados","Revisão ortográfica feita","Checagem de plágio realizada"],"Submissão":["Carta de apresentação escrita","Arquivos nos formatos pedidos","Dados e anexos enviados","Orientador aprovou a versão final"]};
+const J=[["SciELO Brasil","Gratuito","Psicologia","Plataforma aberta com centenas de revistas brasileiras. Veja Psicologia: Reflexão e Crítica e Estudos de Psicologia."],["Arquivos de Neuro-Psiquiatria","Gratuito","Neurociência","Revista brasileira de neurologia, indexada na SciELO."],["Dementia & Neuropsychologia","Gratuito","Neurociência","Revista brasileira em inglês, focada em cognição e demências."],["Psicologia USP","Gratuito","Psicologia","Revista de acesso aberto, sem cobrança aos autores, de uma universidade pública."],["PLOS ONE","Taxa","Neurociência","Aceita por rigor, não por novidade. Cobra taxa de publicação, com isenções em alguns casos."],["Frontiers in Neuroscience","Taxa","Neurociência","Alta visibilidade, acesso aberto, com taxa."],["eLife","Taxa","Neurociência","Modelo de revisão aberta. Verifique as condições atuais."],["Scientific Reports","Taxa","Neurociência","Multidisciplinar, da Nature, com taxa."],["PsyArXiv","Gratuito","Psicologia","Servidor de preprints para psicologia. Publica rápido, sem revisão prévia."],["bioRxiv","Gratuito","Neurociência","Preprints de biologia e neurociência."],["SciELO Preprints","Gratuito","Psicologia","Preprints em português, gratuitos."],["DOAJ (diretório)","Gratuito","Psicologia","Não é revista: é a lista de revistas abertas confiáveis. Use para checar."]];
+const $=id=>document.getElementById(id);
+function pills(id,items,fn,first){const el=$(id);el.innerHTML="";items.forEach((x,i)=>{const b=document.createElement("button");b.className="pill"+(i===first?" on":"");b.textContent=x;b.onclick=()=>{[...el.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");fn(x)};el.appendChild(b)})}
+function showT(k){const o=T[k];$("tc").innerHTML=`<h3>${k}</h3><p>${o.t}</p><div class="meta"><span>${o.w}</span><span>Guia: ${o.r}</span></div>`+o.s.map((s,i)=>`<div class="sec"><i>${i+1}</i><div><b>${s[0]}</b><small>${s[1]}</small></div></div>`).join("")+det(D[k]||{})}
+pills("tp",Object.keys(T),showT,0);showT(Object.keys(T)[0]);
+$("st").innerHTML=P.map((p,i)=>`<div class="card step" onclick="this.classList.toggle('open')"><h3>${p[0]}<span class="n">${String(i+1).padStart(2,"0")}</span></h3><p>${p[1]}</p></div>`).join("");
+pills("fp",Object.keys(F),k=>$("fc").textContent=F[k],0);$("fc").textContent=F.ABNT;
+const V={"Original (IMRaD)":["Descreva desenho do estudo, local, período, amostra e cálculo amostral, instrumentos validados, procedimento, análise estatística e aprovação ética (número do CEP).","Resumo estruturado: Objetivo, Método, Resultados (com números), Conclusão."],"Revisão sistemática":["Descreva protocolo e registro (PROSPERO), pergunta PICO, bases, string completa de busca, critérios, processo de seleção por 2 revisores, extração e avaliação de risco de viés.","Resumo estruturado conforme PRISMA: bases, nº de estudos incluídos, principais achados e nível de evidência."],"Revisão narrativa":["Descreva bases consultadas, descritores, período e critério de escolha das fontes, mesmo sem protocolo rígido.","Resumo corrido: tema, abordagem, eixos discutidos e conclusão principal."],"Relato de caso":["Descreva o consentimento, a aprovação ética, a coleta do histórico e o referencial de relato (CARE).","Resumo: relevância do caso, apresentação, evolução e lição principal."],"Estudo de caso":["Descreva a justificativa do caso, as fontes de dados (entrevista, documento, observação), a triangulação e o método de análise.","Resumo: questão, caso, método de análise, achados e contribuição."],"Ensaio teórico":["Explique o percurso: autores escolhidos, critério de seleção das obras e o tipo de análise argumentativa.","Resumo: tese, argumentos centrais e conclusão."],"Comunicação breve":["Seja enxuto: amostra, instrumento, procedimento e análise em poucas linhas.","Resumo curto, de 80 a 150 palavras, com o achado principal."],"Artigo de metanálise":["Além do método da revisão sistemática, descreva o modelo estatístico, o cálculo do efeito, a heterogeneidade (I²) e a análise de viés de publicação.","Resumo: nº de estudos, efeito combinado com intervalo de confiança, heterogeneidade e conclusão."],"Artigo de metodologia":["Descreva a construção dos itens, juízes especialistas, pré-teste, amostra e análises de validade e confiabilidade.","Resumo: construto, amostra, indicadores psicométricos e usos recomendados."]};
+const W={"Tema":{o:"Transformar uma curiosidade em uma pergunta de pesquisa viável.",s:[["Passo 1. Liste interesses","Escreva 5 assuntos que você gosta. Marque aqueles em que você tem acesso a dados, orientador ou literatura."],["Passo 2. Afunile em quatro níveis","Área (neurociência) > tema (memória) > problema (sono e memória em universitários) > pergunta (horas de sono se relacionam com o desempenho em teste de memória?)."],["Passo 3. Leia 10 artigos recentes","Leia os resumos e as seções de limitações. As limitações mostram lacunas que você pode preencher."],["Passo 4. Aplique o teste FINER","Viável (tempo, dinheiro, acesso), Interessante, Novo (traz algo), Ético, Relevante. Se falhar em um item, ajuste o tema."],["Passo 5. Escreva a pergunta","Uma frase, terminando em interrogação, com população, variável e contexto."]],m:"Modelo: Em [população], [variável A] está relacionada a [variável B] em [contexto]?",e:"Tema amplo demais (ex.: “a memória humana”) e pergunta que pode ser respondida com sim ou não sem análise."},"Critérios":{o:"Definir, antes de começar, quem ou o que entra e sai da pesquisa.",s:[["Passo 1. Parta da pergunta","Cada critério precisa decorrer da pergunta. Se não decorre, não é necessário."],["Passo 2. Critérios de inclusão","Liste características que o participante ou estudo DEVE ter: faixa etária, contexto, idioma, tipo de estudo, período, acesso ao texto completo."],["Passo 3. Critérios de exclusão","Liste condições que, mesmo com os critérios de inclusão, impedem a entrada: variáveis que distorcem o resultado, dados incompletos, duplicatas."],["Passo 4. Seja objetivo e mensurável","Evite “adultos saudáveis”. Prefira “18 a 30 anos, sem diagnóstico neurológico relatado”."],["Passo 5. Defina antes de ver os resultados","Critérios criados depois da coleta ou busca podem enviesar a pesquisa. Registre-os em protocolo."],["Passo 6. Documente as exclusões","Anote quantos foram excluídos e por quê. Em revisões, use o fluxograma PRISMA."]],m:"Modelo: Foram incluídos [critério 1], [critério 2] e [critério 3]. Foram excluídos [critério A] e [critério B].",e:"Critérios vagos, contraditórios ou que excluem sem justificativa."},"Metodologia":{o:"Permitir que outro pesquisador repita seu estudo.",s:[["Passo 1. Tipo e abordagem","Diga se é quantitativo, qualitativo ou misto e o desenho (transversal, experimental, revisão etc.)."],["Passo 2. Participantes ou fontes","Como foram recrutados, quantos, por que esse número e quais os critérios."],["Passo 3. Instrumentos","Nome, autores, o que mede, número de itens e dados de validade/confiabilidade."],["Passo 4. Procedimento","Descreva a coleta em ordem cronológica, com local, período e duração."],["Passo 5. Análise dos dados","Testes estatísticos ou técnica qualitativa (análise de conteúdo, temática), software e nível de significância."],["Passo 6. Ética","Comitê de ética, número do parecer e uso do TCLE."]],m:"Pergunta-teste: um estranho conseguiria repetir meu estudo usando só esta seção?",e:"Misturar resultados com método e omitir como a amostra foi definida."},"Introdução":{o:"Convencer o leitor de que a pergunta importa e ainda não foi respondida.",s:[["Parágrafo 1. Contexto amplo","Apresente o tema e sua importância, com dados ou citações recentes."],["Parágrafo 2. O que já se sabe","Resuma estudos anteriores relevantes, agrupados por ideia."],["Parágrafo 3. A lacuna","Mostre o que falta, com frases como “poucos estudos investigaram...”."],["Parágrafo 4. Objetivo e hipótese","Termine com o objetivo claro, no infinitivo (“Investigar...”)."]],m:"Estrutura em funil: do geral para o específico, terminando no seu objetivo.",e:"Introdução longa demais, que parece uma revisão, ou sem lacuna."},"Resumo":{o:"Dar ao leitor a ideia completa do artigo em 150 a 250 palavras.",s:[["Escreva por último","Só depois do artigo pronto, para refletir o que realmente foi feito."],["Frase 1. Contexto e objetivo","Uma ou duas frases."],["Frase 2. Método","Amostra e instrumentos resumidos."],["Frase 3. Resultados principais","Com números: médias, p-valor, tamanho de efeito."],["Frase 4. Conclusão","O que os resultados significam, sem exagerar."],["Palavras-chave","3 a 5 termos controlados (DeCS ou MeSH)."]],m:"Sem citações, sem abreviações sem explicação e sem informação que não esteja no texto.",e:"Resumo vago (“os resultados foram discutidos”) e sem dados."},"Discussão":{o:"Interpretar os resultados e mostrar o que eles significam.",s:[["Parágrafo 1. Principal achado","Retome a resposta à pergunta de pesquisa."],["Parágrafos seguintes","Compare com a literatura: concorda ou discorda? Por quê?"],["Mecanismos e explicações","Proponha explicações possíveis, sem afirmar o que não foi testado."],["Limitações","Seja honesto: amostra, delineamento, instrumentos."],["Implicações e futuro","Para a prática e para novas pesquisas."],["Conclusão","Um parágrafo que responde ao objetivo, sem dados novos."]],m:"Use verbos cautelosos: sugere, indica, é compatível com.",e:"Repetir os resultados e concluir além dos dados."},"Referências":{o:"Dar crédito, sustentar seus argumentos e permitir que o leitor localize as fontes.",s:[["Quantidade","Em artigos originais, em geral 20 a 40. Revisões podem ter mais. Priorize os últimos 5 a 10 anos."],["Qualidade","Prefira artigos de revistas revisadas por pares e livros acadêmicos. Evite blogs e sites sem autoria."],["Organização","Use Zotero ou Mendeley desde o início, e não só no final."],["Norma","Siga o estilo da revista (ABNT, APA, Vancouver). Veja a seção Formatos."],["Conferência","Todo item citado no texto deve estar na lista, e vice-versa. Inclua o DOI quando existir."],["Ética","Parafraseie com suas palavras e cite sempre. Rode um verificador de similaridade antes de enviar."]],m:"Cite artigos originais, não só quem os citou.",e:"Referências incompletas, fora da norma ou nunca lidas."}};
+let wT=Object.keys(T)[0],wP="Tema";
+function wShow(){const w=W[wP],v=V[wT];let x=`<h3 style="margin-top:18px">${wP}</h3><p><b>Objetivo:</b> ${w.o}</p>`+w.s.map(s=>`<details class="w"><summary>${s[0]}</summary><p>${s[1]}</p></details>`).join("")+`<div class="tp">${w.m}</div><p><b>Erro comum:</b> ${w.e}</p>`;if(wP==="Metodologia")x+=`<div class="tp"><b>Para ${wT}:</b> ${v[0]}</div>`;if(wP==="Resumo")x+=`<div class="tp"><b>Para ${wT}:</b> ${v[1]}</div>`;if(wP==="Critérios"){const d=D[wT];x+=`<div class="cols"><div><h3 class="g">Inclusão (${wT})</h3>${L(d.i)}</div><div><h3 class="g">Exclusão (${wT})</h3>${L(d.e)}</div></div>`}
+if(["Introdução","Discussão"].includes(wP))x+=`<p><b>Estrutura do tipo escolhido:</b> ${T[wT].s.map(s=>s[0]).join(" → ")}</p>`;$("wc").innerHTML=x}
+pills("wt",Object.keys(T),k=>{wT=k;wShow()},0);pills("wp",Object.keys(W),k=>{wP=k;wShow()},0);wShow();
+let st={};try{st=JSON.parse(localStorage.getItem("ck")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("ck",JSON.stringify(st))}catch(e){}}
+function draw(){let n=0,t=0;$("ck").innerHTML=Object.entries(C).map(([g,a])=>`<h3 class="g">${g}</h3>`+a.map(x=>{t++;const d=st[x];if(d)n++;return`<label class="ck${d?" done":""}"><input type="checkbox" ${d?"checked":""} data-k="${x}"><span>${x}</span></label>`}).join("")).join("");
+document.querySelectorAll("#ck input").forEach(i=>i.onchange=()=>{st[i.dataset.k]=i.checked;save();draw()});
+const p=Math.round(n/t*100);$("pc").textContent=p+"% concluído ("+n+"/"+t+")";$("pb").style.width=p+"%"}
+$("rs").onclick=()=>{st={};save();draw()};draw();
+function showJ(f){$("jl").innerHTML=J.filter(j=>f==="Todos"||j[1]===f||j[2]===f).map(j=>`<div class="card j"><span class="badge">${j[1]}</span><b>${j[0]}</b><small>${j[2]}</small><span>${j[3]}</span></div>`).join("")}
+pills("jp",["Todos","Gratuito","Taxa","Neurociência","Psicologia"],showJ,0);showJ("Todos");
+$("tt").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+</script>
+</body>
+</html>
